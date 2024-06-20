@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)file:///Users/jhanvi/Downloads/Your%20Work%20-%20CodePen_files/yLWvXzR.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  
+
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111">
+
+
+
+  
+    <style>*, *::before, *::after { animation-play-state: paused !important; }</style><style>*, *::before, *::after { animation-play-state: paused !important; }</style><script src="./stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+
+  <title>CodePen - A Pen by Jhanvi Thapliyal</title>
+
+    <link rel="canonical" href="https://codepen.io/tjhanavi/pen/yLWvXzR">
+  
+  
+  
+  
+<style>
+/* General styles */
+body {
+    font-family: 'Abel', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2e2e2e;
+    color: #e0ded7;
+    scroll-behavior: smooth;
+}
+
+header {
+    background: #000000;
+    color: #ffffff;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background 0.3s, color 0.3s;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+nav ul li a:hover {
+    background: #444444;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+section {
+    padding: 6rem 1rem;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section#home {
+    background: #2e2e2e;
+    color: #e0ded7;
+    position: relative;
+    overflow: hidden;
+}
+
+.intro-background {
+    background: url('images/intro_background.jpg') no-repeat center center/cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    animation: fadeIn 3s ease-in-out;
+}
+
+.intro-content {
+    padding-top: 20vh;
+}
+
+.scroll-down {
+    margin-top: 3rem;
+}
+
+.scroll-down i {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.number-graphics {
+    margin-top: 2rem;
+}
+
+.numbers {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.number {
+    font-size: 3rem;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #000;
+    padding: 1rem;
+    margin: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, background 0.3s;
+    animation: fadeInScale 1s ease forwards;
+}
+
+.number:hover {
+    transform: scale(1.1);
+    background: #e0ded7;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+section#about {
+    background: #3b3b3b;
+}
+
+section#gallery {
+    background: #444444;
+}
+
+section#contact {
+    background: #555555;
+}
+
+h1, h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    color: #ffffff;
+}
+
+.artist-info {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.artist {
+    max-width: 45%;
+    text-align: left;
+}
+
+.artist img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+  var consoleWarn = window.console.warn;
+  function warn(){ consoleWarn.apply(console, arguments); }
+  window.open = function(){ warn("window.open is disabled."); };
+  window.print   = function(){ warn("window.print is disabled."); };
+  window.alert   = function(){ warn("window.alert is disabled."); };
+  window.confirm = function(){ warn("window.confirm is disabled."); };
+  window.prompt  = function(){ warn("window.prompt is disabled."); };
+  window.Notification = function() { warn("HTML5 notifications are disabled."); };
+  function noop(){}
+  Object.keys(window.console).map(function(key){
+    window.console[key] = noop
+  });
+</script>
+
+  
+    <script>
+    (function() {
+      /*
+      * Capture all errors for this pen
+      **/
+      window.onerror = function(/* message, file, line */) {
+        return true;
+      };
+
+      /*
+      * Capture and kill Web Audio and Speech
+      */
+      if (typeof (AudioContext) != "undefined" || typeof (webkitAudioContext) != "undefined") {
+        AudioContext = function() {
+          return false;
+        };
+
+        webkitAudioContext = function() {
+          return false;
+        };
+      }
+
+      if (typeof (mozAudioContext) != "undefined") {
+        mozAudioContext = function() {
+          return false;
+        };
+      }
+
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis = {};
+      }
+      if ("speak" in speechSynthesis) {
+        speechSynthesis.speak = function() {
+          return false;
+        };
+      }
+
+      // Kill the browser asking for access to the video cam or audio
+      navigator.getUserMedia = function() {
+      };
+      navigator.mozGetUserMedia = function() {
+      };
+      navigator.webkitGetUserMedia = function() {
+      };
+      navigator.mediaDevices.getUserMedia = function() {
+      };
+
+
+      /**
+      * Capture and kill animations after X number of seconds
+      **/
+      var __animationDuration = 4000;
+      var __animationsTimedOut = false;
+      var __animationRequests = [];
+      var __requestAnimationFrame = false;
+      var __cancelAnimationFrame = false;
+      var x, i;
+
+      var vendorsRequestAnimationFrame = [
+        "requestAnimationFrame",
+        "mozRequestAnimationFrame",
+        "webkitRequestAnimationFrame"
+      ];
+
+      // find the browsers requestAnimationFrame and cancelAnimationFrame
+      for (x = 0; x < vendorsRequestAnimationFrame.length; x++) {
+        if (!__requestAnimationFrame) {
+          __requestAnimationFrame = window[vendorsRequestAnimationFrame[x]
+          ];
+        }
+      }
+
+      __cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
+
+      // Wrap the requestAnimationFrame so we can stop it in the future
+      function __reqFrame(callback, element) {
+        // after the timeout we no longer take requests
+        var timerID;
+        if (__animationsTimedOut) {
+          return 0;
+        } else {
+          timerID = __requestAnimationFrame(callback, element);
+          __animationRequests.push(timerID);
+
+          return timerID;
+        }
+      }
+
+      for (x = 0; x < vendorsRequestAnimationFrame.length; x++) {
+        window[vendorsRequestAnimationFrame[x]] = __reqFrame;
+      }
+
+      // Cancel the animations after expiration
+      setTimeout(function() {
+        for (i = 0; i < __animationRequests.length; i++) {
+          __cancelAnimationFrame(__animationRequests[i]);
+        }
+
+        var ss = window.document.createElement("style");
+        ss.textContent = "*, *::before, *::after { animation-play-state: paused !important; }";
+        var ref = window.document.getElementsByTagName("script")[0];
+        ref.parentNode.insertBefore(ss, ref);
+
+        __animationsTimedOut = true;
+      }, __animationDuration, "push");
+
+      /**
+      * Capture setInterval and setTimeout to kill after X number of seconds
+      **/
+      window.setInterval = (function(oldSetInterval) {
+        var registered = [];
+
+        function f(a,b) {
+          // check if the time has expired,
+          // after __animationDuration expires don't take anymore setIntervals
+          if (this.timedOut) {
+            return 0;
+          } else {
+            return registered[ registered.length ] = oldSetInterval(a,b);
+          }
+        }
+
+        f.clearAll = function() {
+          var r;
+
+          while (r = registered.pop()) {
+            clearInterval( r );
+          }
+
+          this.timedOut = true;
+        };
+
+        f.timedOut = false;
+
+        return f;
+      }(window.setInterval));
+
+      window.setTimeout = (function(oldSetTimeout) {
+        var registered = [];
+
+        // because some of our timeouts may time out afterwards
+        // we want to make sure they know the secret sauce to still use
+        // setTimeout after the time has expired, thats why we have a
+        // third param
+        function f(a, b, push) {
+          // check if the time has expired,
+          // after __animationDuration expires don't take anymore requests
+          if (this.timedOut && typeof(push) == "undefined") {
+            return 0;
+          } else {
+            // If push is there, never clear that interval
+            // so never add it to the registry
+            if (push) {
+              return oldSetTimeout(a,b);
+            } else {
+              return registered[ registered.length ] = oldSetTimeout(a,b);
+            }
+          }
+        }
+
+        f.clearAll = function() {
+          var r;
+
+          while (r = registered.pop()) {
+            clearTimeout( r );
+          }
+
+          this.timedOut = true;
+        };
+
+        f.timedOut = false;
+
+        return f;
+      }(window.setTimeout));
+
+      setTimeout(function() {
+
+        setTimeout.clearAll();
+        setInterval.clearAll();
+
+        // Stop Web Animations API
+        // Idea from Gregor: https://github.com/CodePen/CodePen-Bug-Reporting-Only/issues/173#issuecomment-203443301
+        // Status as of April 2020:
+        //  Chrome 80 = Stops animations
+        //  Firefox 75 = Stops animations
+        //  Safari 13 = Doesn't support WAAPI
+        //  Safari 13.1 = Stops animations
+
+        // Apparently this used to be done via `document.timeline`, but the modern method is to get the animations directly from the document.
+        let animations = ( typeof document.getAnimations === "function" && document.getAnimations() ) || (document.timeline && typeof document.timeline.getAnimations === "function" && document.timeline.getAnimations() )
+
+        if ( animations && animations.length ) {
+          animations.map(function(animation) {
+            animation.pause();
+          });
+        }
+
+      }, __animationDuration, "push");
+
+    }());
+  </script>
+
+</head>
+
+<body translate="no" onload="_l=&#39;t&#39;;">
+  
+
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 Reasons to Rise</title>
+    <link rel="stylesheet" href="file:///Users/jhanvi/Downloads/Your%20Work%20-%20CodePen_files/styles.css">
+    <link rel="stylesheet" href="./all.min.css">
+    <link href="./css2" rel="stylesheet">
+
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="https://cdpn.io/tjhanavi/fullcpgrid/yLWvXzR#home">Home</a></li>
+                <li><a href="https://cdpn.io/tjhanavi/fullcpgrid/yLWvXzR#about">About</a></li>
+                <li><a href="https://cdpn.io/tjhanavi/fullcpgrid/yLWvXzR#gallery">Gallery</a></li>
+                <li><a href="https://cdpn.io/tjhanavi/fullcpgrid/yLWvXzR#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="section animate visible">
+        <div class="intro-background"></div>
+        <div class="intro-content">
+            <h1>100 Reasons to Rise</h1>
+            <p>A photo documentary by Misan Harriman &amp; Domizia Salusest</p>
+            <div class="scroll-down"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="number-graphics">
+            <div class="numbers">
+                <div class="number">1</div>
+                <div class="number">10</div>
+                <div class="number">25</div>
+                <div class="number">50</div>
+                <div class="number">75</div>
+                <div class="number">100</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section animate">
+        <h1>About the Artists</h1>
+        <div class="artist-info">
+            <div class="artist">
+                <img src="file:///Users/jhanvi/Downloads/Your%20Work%20-%20CodePen_files/misan_harriman.jpg" alt="Misan Harriman">
+                <h2>Misan Harriman</h2>
+                <p>Misan Harriman is a renowned photographer and activist. His work has been instrumental in documenting social movements and capturing the human spirit. Known for his powerful images from Black Lives Matter protests, Misan's photography transcends boundaries and delivers poignant messages of justice, resilience, and hope. His ability to capture raw emotions makes him a distinguished artist in contemporary photography.</p>
+            </div>
+            <div class="artist">
+                <img src="file:///Users/jhanvi/Downloads/Your%20Work%20-%20CodePen_files/domizia_salusest.jpg" alt="Domizia Salusest">
+                <h2>Domizia Salusest</h2>
+                <p>Domizia Salusest is celebrated for her unique approach to portrait photography. Her work often explores the intricate connections between individuals and their environments. Domizia's portraits are known for their depth, bringing out the essence of her subjects with a blend of authenticity and artistry. Her contribution to the "100 Reasons to Rise" project highlights her talent for capturing the extraordinary in the everyday.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section animate">
+        <h1>Gallery</h1>
+        <div class="grid-container">
+            <div class="grid-item" onclick="openModal(&#39;person1&#39;)">
+                <img src="file:///Users/jhanvi/Downloads/Your%20Work%20-%20CodePen_files/person1.jpg" alt="Person 1">
+                <div class="overlay">
+                    <div class="text">Person 1</div>
+                </div>
+            </div>
+            <div class="grid-item" onclick="openModal(&#39;person2&#39;)">
+                <img src="file:///Users/jhanvi/Downloads/Your%20Work%20-%20CodePen_files/person2.jpg" alt="Person 2">
+                <div class="overlay">
+                    <div class="text">Person 2</div>
+                </div>
+            </div>
+            <!-- Add more grid items as needed -->
+        </div>
+    </section>
+
+    <section id="contact" class="section animate">
+        <h1>Contact</h1>
+        <p>For inquiries, please contact us at <a href="mailto:info@100reasonstorise.com">info@100reasonstorise.com</a></p>
+    </section>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="file:///Users/jhanvi/Downloads/Your%20Work%20-%20CodePen_files/scripts.js"></script>
+
+
+  
+      <script id="rendered-js">
+// Smooth Scrolling for Navigation Links
+document.querySelectorAll('nav ul li a').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth' });
+
+  });
+});
+
+// Intersection Observer for Section Animations
+const sections = document.querySelectorAll('.section');
+
+const observerOptions = {
+  root: null,
+  threshold: 0.1 };
+
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+sections.forEach(section => {
+  observer.observe(section);
+});
+
+// Modal Functionality for Gallery
+const modal = document.getElementById("modal");
+const modalBody = document.getElementById("modal-body");
+
+function openModal(personId) {
+  modal.style.display = "block";
+  const imageUrl = `images/${personId}.jpg`;
+  const personDetails = getPersonDetails(personId);
+
+  modalBody.innerHTML = `
+        <img src="${imageUrl}" alt="${personDetails.name}">
+        <h2>${personDetails.name}</h2>
+        <p>${personDetails.description}</p>
+    `;
+}
+
+function closeModal() {
+  modal.style.display = "none";
+}
+
+// Retrieve person details (Mock data, replace with actual details)
+function getPersonDetails(personId) {
+  const details = {
+    person1: {
+      name: "Person 1",
+      description: "Person 1 is a remarkable individual whose story reflects the power of resilience and determination. Their contributions have inspired many to overcome challenges and pursue their dreams." },
+
+    person2: {
+      name: "Person 2",
+      description: "Person 2 is known for their innovative approach to problem-solving and their dedication to community service. Their impact on society is profound and enduring." }
+
+    // Add more person details as needed
+  };
+  return details[personId] || { name: "Unknown", description: "No description available." };
+}
+
+// Close modal when clicking outside of it
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+// Additional functions for number graphics animations
+const numbers = document.querySelectorAll('.number');
+numbers.forEach(number => {
+  number.addEventListener('mouseover', () => {
+    number.style.transform = 'scale(1.2)';
+  });
+  number.addEventListener('mouseout', () => {
+    number.style.transform = 'scale(1)';
+  });
+});
+//# sourceURL=pen.js
+    </script>
+
+    <script style="display: none !important;">
+  (function() {
+    var __animationDuration = 4000;
+
+    setTimeout(function() {
+      // If onload hasn't been called, stop all requests after 2 seconds
+      if (typeof(_l) == "undefined") {
+        if (window.stop !== undefined) window.stop();
+        else if (document.execCommand !== undefined) document.execCommand("Stop", false);
+      }
+    }, 2000, "push");
+
+    /*
+    * Capture and kill CSS animations after X number of seconds
+    */
+    function pauseAnimations() {
+      var body = document.getElementsByTagName("body")[0];
+
+      if (body.addEventListener) {
+        body.addEventListener("webkitAnimationStart", listener, false);
+        body.addEventListener("webkitAnimationIteration", listener, false);
+        body.addEventListener("animationstart", listener, false);
+        body.addEventListener("animationiteration", listener, false);
+      }
+    }
+
+    function listener(e) {
+
+      var targetEl;
+
+      if (e.type == "webkitAnimationStart" || e.type == "webkitAnimationIteration") {
+
+        targetEl = e.target;
+
+        setTimeout(function() {
+          targetEl.style.webkitAnimationPlayState = "paused";
+        }, __animationDuration, "push");
+
+      } else if (e.type == "animationstart" || e.type == "animationiteration") {
+
+        targetEl = e.target;
+
+        setTimeout(function() {
+          targetEl.style.MozAnimationPlayState = "paused";
+        }, __animationDuration, 'push');
+
+      }
+    }
+
+    pauseAnimations();
+
+    // Pause all audio elements, allow the audio/video
+    // elements to render before stopping them
+    function pauseElementTypes(type) {
+      for (var i = 0, els = document.getElementsByTagName(type); i < els.length; i++) {
+        els[i].pause();
+      }
+    }
+
+    // Wait until the elements have been created to pause them
+    setTimeout(function() {
+      pauseElementTypes("audio");
+      pauseElementTypes("video");
+    }, 100);
+
+  }());
+  </script>
+
+  <script src="./iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js"></script>
+
+
+
+</body></html>
